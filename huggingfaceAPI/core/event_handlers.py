@@ -15,8 +15,7 @@ def _startup_model(app: FastAPI) -> None:
     if task == Tasks.TEXT_GENERATION.value:
         model_instance = TextGenerationModel(model_name_or_path, fp16)
     else:
-        pass
-    # model_instance = QAModel(model_path)
+        raise ValueError(f"{task} is not supported")
     app.state.model = model_instance
 
 
