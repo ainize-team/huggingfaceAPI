@@ -8,8 +8,11 @@ from models.prediction import TextGenerationResult
 
 
 class TextGenerationModel:
-    def __init__(self, model_name_or_path: str, is_fp16: bool):
-        self.model = AutoModelForCausalLM.from_pretrained(model_name_or_path)
+    def __init__(self, model_name_or_path: str, revision: str, is_fp16: bool):
+        if revision:
+            self.model = AutoModelForCausalLM.from_pretrained(model_name_or_path, revision=revision)
+        else:
+            self.model = AutoModelForCausalLM.from_pretrained(model_name_or_path)
         if is_fp16:
             self.model = self.model.half()
         self.tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
