@@ -2,8 +2,10 @@ FROM python:3.8.10
 
 ARG MODEL_NAME_OR_PATH="gpt2"
 ARG IS_FP16="False"
+ARG REVISION=""
 ENV MODEL_NAME_OR_PATH="${MODEL_NAME_OR_PATH}"
 ENV IS_FP16="${IS_FP16}"
+ENV REVISION="${REVISION}"
 
 COPY ./requirements_gpu.txt ./requirements.txt
 RUN pip install --upgrade -r ./requirements.txt
