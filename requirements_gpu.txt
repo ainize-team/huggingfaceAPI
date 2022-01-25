@@ -1,5 +1,6 @@
 -f https://download.pytorch.org/whl/cu113/torch_stable.html
 fastapi==0.73.0
+loguru==0.5.3
 requests==2.27.1
 starlette==0.17.1
 tokenizers==0.10.3
