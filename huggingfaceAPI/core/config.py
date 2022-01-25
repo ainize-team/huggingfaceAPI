@@ -8,4 +8,4 @@ TASK = "TEXT_GENERATION"
 config = Config(".env")
 
 MODEL_NAME_OR_PATH: str = config("MODEL_NAME_OR_PATH")
-FP16: bool = config("FP16", cast=bool, default=False)
+IS_FP16: bool = config("IS_FP16", cast=bool, default=False)

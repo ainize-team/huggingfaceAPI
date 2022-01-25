@@ -8,9 +8,9 @@ from models.prediction import TextGenerationResult
 
 
 class TextGenerationModel:
-    def __init__(self, model_name_or_path: str, fp16: bool):
+    def __init__(self, model_name_or_path: str, IS_FP16: bool):
         self.model = AutoModelForCausalLM.from_pretrained(model_name_or_path)
-        if fp16:
+        if IS_FP16:
             self.model = self.model.half()
         self.tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
