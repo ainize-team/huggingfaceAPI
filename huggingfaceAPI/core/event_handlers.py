@@ -11,9 +11,9 @@ from core.commons import Tasks
 def _startup_model(app: FastAPI) -> None:
     model_name_or_path = MODEL_NAME_OR_PATH
     task = TASK
-    IS_FP16 = IS_FP16
+    is_fp16 = IS_FP16
     if task == Tasks.TEXT_GENERATION.value:
-        model_instance = TextGenerationModel(model_name_or_path, IS_FP16)
+        model_instance = TextGenerationModel(model_name_or_path, is_fp16)
     else:
         raise ValueError(f"{task} is not supported")
     app.state.model = model_instance
